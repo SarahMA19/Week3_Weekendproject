@@ -4,8 +4,20 @@ class return_on_investment():
      user_input_investment ={}
 
      
-
-
+     def get_value(self, prompt):
+          while True:
+               try:
+                    v = int(input(prompt))
+                    if v >= 0:
+                         break
+                    else:
+                         print("Your value needs to be greater than 0")
+               except:
+                    print("Sorry, I need a vaild number")
+          return v
+     
+          
+     
      def cash_flow(self):
           income = (sum(self.user_input_income.values()))
           expenses = (sum(self.user_input_expenses.values()))
@@ -26,17 +38,10 @@ class return_on_investment():
      
                
                
-               rental_income = int(input("\nWhat is your monthly rental income on the property? :$"))
-               laundry =int(input("\nWhat is your laundry income for the month? :$"))
-               storage =int(input("\nWhat is your storage unit income for the month? :$"))
+               rental_income = self.get_value("\nWhat is your monthly rental income on the property? :$")
+               laundry = self.get_value("\nWhat is your laundry income for the month? :$"))
+               storage = self.get_value("\nWhat is your storage unit income for the month? :$"))
 
-          # while True:
-          # resp = input(" x ")
-          # try:
-          #      resp = int(resp)
-          #      break
-          # except:
-          #      print("Please enter a valid number")
 
                self.user_input_income.update({
                     "rental income": rental_income, 
@@ -53,13 +58,13 @@ class return_on_investment():
      def expenses(self):
           while True:
                print("\nLet's figure out your total expenses of this property!")
-               insurance =int(input("\nHow much do you pay for each month on insurance? :$"))
-               tax = int(input("\nHow much do you pay in taxes each month? :$"))
-               utilites = int(input("\nHow much do you pay in monthly utilites? :$"))
-               repairs = int(input("\nHow much would you like to set aside for repairs each month? :$"))
-               property_managment = int(input("\nWhat do you pay your property manager each month? :$"))
-               morgatage = int(input("\nHow much is your monthly morgage? :$"))
-               vacancy = int(input("\nHow much would you like to set aside for vacancy each month? :$"))
+               insurance =self.get_value("\nHow much do you pay for each month on insurance? :$"))
+               tax = self.get_value("\nHow much do you pay in taxes each month? :$"))
+               utilites = self.get_value("\nHow much do you pay in monthly utilites? :$"))
+               repairs = self.get_value("\nHow much would you like to set aside for repairs each month? :$"))
+               property_managment = self.get_value("\nWhat do you pay your property manager each month? :$"))
+               morgatage = self.get_value("\nHow much is your monthly morgage? :$"))
+               vacancy = self.get_value("\nHow much would you like to set aside for vacancy each month? :$"))
 
                self.user_input_expenses.update({
                "insurance": insurance,
@@ -80,9 +85,9 @@ class return_on_investment():
      def investment(self):
           while True:
                print("\nLet's figure out your total investment into this property!")
-               down_payment =int(input("\nHow much do you pay for the down payment on this property? :$"))
-               closing_costs = int(input("\nHow much were the closing costs :$"))
-               fix_budget = int(input("\nHow much did you need to spend on fixing the place up prior to renting? :$"))
+               down_payment = self.get_value("\nHow much do you pay for the down payment on this property? :$"))
+               closing_costs = self.get_value("\nHow much were the closing costs :$"))
+               fix_budget = self.get_value("\nHow much did you need to spend on fixing the place up prior to renting? :$"))
 
                self.user_input_investment.update({
                     "down_payment": down_payment,
